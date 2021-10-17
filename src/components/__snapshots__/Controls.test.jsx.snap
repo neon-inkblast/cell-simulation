@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Controls component renders 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-gsTEea fxyNSE"
+  >
+    <button
+      class="sc-bdfBQB icJfVi"
+    >
+      Reset
+    </button>
+    <button
+      class="sc-bdfBQB icJfVi"
+    >
+      Next Gen
+    </button>
+    <div>
+      Generation 0
+    </div>
+  </div>
+</DocumentFragment>
+`;
