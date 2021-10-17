@@ -1,46 +1,94 @@
-# Getting Started with Create React App
+# Belong - Tech Test - Cell Simulation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Table of Contents
 
-## Available Scripts
+![Screenshot of project](./docs/screenshot.png)
 
-In the project directory, you can run:
+## Test brief - Cell Simulator
 
-### `yarn start`
+The aim is to demonstrate how you approach thinking about problems and translating them to code.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Create a repository to your own, spend your allocated time working on a solution and then submit it back to us. Please include a README with installation and usage instructions.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Challenge: Cell Simulator
 
-### `yarn test`
+The "game" is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Cell Simulator by creating an initial configuration and observing how it evolves.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Acceptance criteria
 
-### `yarn build`
+- [x] At initial state, User should see an empty board.
+- [x] User can make Cells "alive".
+- [x] User can make Cells "dead".
+- [x] User can trigger "next generation".
+- [x] User can trigger a "reset" to the initial state.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Next generation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+When the next generation is running:
+A Cell with fewer than two live neighbours dies of under-population.
+A Cell with 2 or 3 live neighbours lives on to the next generation.
+A Cell with more than 3 live neighbours dies of overcrowding.
+An empty Cell with exactly 3 live neighbours "comes to life".
+A Cell who "comes to life" outside the board should wrap at the other side of the board.
+Once the next generation is done, User can trigger "next generation" again.
+This example shows an initial state followed by 4 "next generations"
+![Example transitions](./docs/example.jpeg)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Requirements
 
-### `yarn eject`
+Use React and TypeScript.
+Please include some attempt at testing your code.
+While not mandatory, a meaningful git history will be looked upon favourably.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br>
+  
+## Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+After cloning the project, install dependencies by running
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+npm install
+```
 
-## Learn More
+or
 
+```
+yarn install
+```
+
+from the root directory, depending on your package manager.
+
+---
+
+## Running
+
+Once dependencies are installed the project can be run with `npm start` or `yarn start`. It will start up at [localhost](http://localhost:3000).
+
+---
+
+## Usage
+
+There are a few user interactions available.
+
+- Cells: Click to toggle "alive" or "dead"
+- Next gen: Runs the simulation and produces the next state of every cell
+- Reset: Resets the grid to the intial empty state.
+
+---
+
+## Tests
+
+I have written tests for the most important parts of the project, around the interactive components and business logic. This includes a test that specifically runs over the example scenario given.  
+To run the test suites, use `npm test` or `yarn test`.
+![Screenshot of project](./docs/tests.png)
+
+---
+
+## Tools
+
+This project was built in React using the Create React App to bootstrap.
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+I also utilised Styled Components lib as I noticed it listed in the Belong position description. :)
