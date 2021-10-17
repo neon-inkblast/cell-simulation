@@ -15,6 +15,7 @@ const App: React.FC = () => {
       <AppHeader>Cell Simulation</AppHeader>
       <AppSubHeader>Belong Tech Test</AppSubHeader>
       <CellGridProvider>
+        <Controls />
         <CellGrid />
       </CellGridProvider>
     </div>
