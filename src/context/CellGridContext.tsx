@@ -9,15 +9,12 @@ export const CellGridContext = React.createContext<CellGridContextType | undefin
 function gridReducer(state: CellGridState, action: CellGridAction): CellGridState {
   switch (action.type) {
     case "reset": {
-      console.log("reset");
       return initialState(config.rows, config.columns);
     }
     case "toggle-cell": {
-      console.log("toggle", action.column, action.row);
       return toggleCell(state, action.row as number, action.column as number);
     }
     case "generate-next": {
-      console.log("generate");
       return generateNext(state);
     }
     default:
