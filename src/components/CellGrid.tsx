@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { config } from "../config/config";
 import { useCellGridContext } from "../context/CellGridContext";
 import Cell from "./Cell";
 
@@ -9,7 +10,7 @@ const CellGrid = styled.div`
 `;
 
 const CellGridRow = styled.div`
-  height: 50px;
+  height: ${config.cellSize}px;
 `;
 
 const Grid: React.FC = () => {

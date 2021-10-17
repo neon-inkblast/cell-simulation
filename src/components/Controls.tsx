@@ -11,8 +11,10 @@ const Button = styled.button`
 `;
 const ControlWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  width: 480px;
+  justify-content: space-between;
   align-items: center;
+  margin: 10px auto;
 `;
 
 const Controls: React.FC = () => {
@@ -20,8 +22,8 @@ const Controls: React.FC = () => {
   return (
     <ControlWrapper>
       <Button onClick={() => dispatch({ type: "reset" })}>Reset</Button>
-      <Button onClick={() => dispatch({ type: "generate-next" })}>Next Gen</Button>
       <div>Generation {state.generation}</div>
+      <Button onClick={() => dispatch({ type: "generate-next" })}>Next Gen</Button>
     </ControlWrapper>
   );
 };

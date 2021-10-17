@@ -15,10 +15,13 @@ describe("Cell component", () => {
 
   beforeEach(() => {
     providerProps = {
-      state: [
-        [0, 1],
-        [1, 0],
-      ],
+      state: {
+        generation: 0,
+        grid: [
+          [0, 1],
+          [1, 0],
+        ],
+      },
       dispatch: jest.fn(),
     };
     renderResult = customRender(<Cell x={testX} y={testY} alive={true} />, { providerProps });
