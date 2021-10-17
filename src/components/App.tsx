@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { CellGridProvider } from "../context/CellGridContext";
 import CellGrid from "./CellGrid";
 
 const AppHeader = styled.h1`
@@ -13,7 +14,9 @@ const App: React.FC = () => {
     <div>
       <AppHeader>Cell Simulation</AppHeader>
       <AppSubHeader>Belong Tech Test</AppSubHeader>
-      <CellGrid></CellGrid>
+      <CellGridProvider>
+        <CellGrid />
+      </CellGridProvider>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React from "react";
+import { useCellGridContext } from "../context/CellGridContext";
 
 export type CellProps = {
   x?: number;
@@ -22,14 +23,8 @@ const StyledCell = styled.div`
 `;
 
 const Cell: React.FC<CellProps> = ({ y, x, alive }) => {
-  return (
-    <StyledCell
-      alive={alive}
-      onClick={() => {
-        console.log(x, "-", y, "toggled");
-      }}
-    ></StyledCell>
-  );
+  const { dispatch } = useCellGridContext();
+  return <StyledCell alive={alive} onClick={() => dispatch({ type: "toggle-cell", column: x, row: y })}></StyledCell>;
 };
 
 export default Cell;

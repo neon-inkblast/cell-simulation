@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useCellGridContext } from "../context/CellGridContext";
 import Cell from "./Cell";
 
 const CellGrid = styled.div`
@@ -12,13 +13,8 @@ const CellGridRow = styled.div`
 `;
 
 const Grid: React.FC = () => {
-  const grid = [
-    [0, 1, 1, 0, 1],
-    [1, 0, 1, 0, 0],
-    [0, 0, 0, 1, 0],
-    [1, 0, 1, 1, 0],
-    [1, 1, 0, 1, 0],
-  ];
+  const { grid } = useCellGridContext().state;
+
   return (
     <CellGrid>
       {grid.map((row, y) => (
