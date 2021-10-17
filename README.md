@@ -76,6 +76,8 @@ There are a few user interactions available.
 - Next gen: Runs the simulation and produces the next state of every cell
 - Reset: Resets the grid to the intial empty state.
 
+The number of rows and columns in the grid can be configured in the configuration file found at `src/config/gridConfig.ts`
+
 ---
 
 ## Tests

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React from "react";
 import { useCellGridContext } from "../context/CellGridContext";
-import { config } from "../config/config";
+import { GridConfig } from "../config/gridConfig";
 
 export type CellProps = {
   x: number;
@@ -10,8 +10,8 @@ export type CellProps = {
 };
 
 const StyledCell = styled.div<Partial<CellProps>>`
-  width: ${config.cellSize}px;
-  height: ${config.cellSize}px;
+  width: ${GridConfig.cellSize}px;
+  height: ${GridConfig.cellSize}px;
   display: inline-block;
   border-radius: 10px;
   margin: 0;

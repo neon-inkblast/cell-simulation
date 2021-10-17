@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import { CellGridAction, CellGridContextType, CellGridState } from "../@types/CellGridContext";
-import { config } from "../config/config";
+import { GridConfig } from "../config/gridConfig";
 import { generateNext, initialState, toggleCell } from "./cellGridUtils";
 
 export const CellGridContext = React.createContext<CellGridContextType | undefined>(undefined);
@@ -9,7 +9,7 @@ export const CellGridContext = React.createContext<CellGridContextType | undefin
 function gridReducer(state: CellGridState, action: CellGridAction): CellGridState {
   switch (action.type) {
     case "reset": {
-      return initialState(config.rows, config.columns);
+      return initialState(GridConfig.rows, GridConfig.columns);
     }
     case "toggle-cell": {
       return toggleCell(state, action.row as number, action.column as number);
@@ -24,7 +24,7 @@ function gridReducer(state: CellGridState, action: CellGridAction): CellGridStat
 
 // reducer wrapped provider component
 export function CellGridProvider({ children }: { children: React.ReactNode }) {
-  const [state, dispatch] = useReducer(gridReducer, initialState(config.rows, config.columns));
+  const [state, dispatch] = useReducer(gridReducer, initialState(GridConfig.rows, GridConfig.columns));
   const value = { state, dispatch };
   return <CellGridContext.Provider value={value}> {children} </CellGridContext.Provider>;
 }
