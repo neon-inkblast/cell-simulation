@@ -27,7 +27,7 @@ function gridReducer(state: CellGridState, action: CellGridAction): CellGridStat
 
 // reducer wrapped provider component
 export function CellGridProvider({ children }: { children: React.ReactNode }) {
-  const [state, dispatch] = useReducer(gridReducer, initialState());
+  const [state, dispatch] = useReducer(gridReducer, initialState(config.rows, config.columns));
   const value = { state, dispatch };
   return <CellGridContext.Provider value={value}> {children} </CellGridContext.Provider>;
 }
