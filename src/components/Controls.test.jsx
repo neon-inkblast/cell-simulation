@@ -38,7 +38,7 @@ describe("Controls component", () => {
     expect(providerProps.dispatch).toHaveBeenCalledWith({ type: "reset" });
   });
 
-  it("dispatches a next generation event on next button click", () => {
+  it("dispatches a next generation event on Next button click", () => {
     // Click the next button
     const nextButton = screen.getByText(/next/i);
     userEvent.click(nextButton);
