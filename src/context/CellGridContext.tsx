@@ -1,5 +1,6 @@
 import React, { useReducer } from "react";
 import { CellGridAction, CellGridContextType, CellGridState } from "../@types/CellGridContext";
+import { config } from "../config/config";
 import { generateNext, initialState, toggleCell } from "./cellGridUtils";
 
 export const CellGridContext = React.createContext<CellGridContextType | undefined>(undefined);
@@ -9,7 +10,7 @@ function gridReducer(state: CellGridState, action: CellGridAction): CellGridStat
   switch (action.type) {
     case "reset": {
       console.log("reset");
-      return initialState();
+      return initialState(config.rows, config.columns);
     }
     case "toggle-cell": {
       console.log("toggle", action.column, action.row);
