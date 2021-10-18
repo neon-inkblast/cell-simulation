@@ -1,8 +1,8 @@
 import { AppConfig } from "../@types/AppConfig";
 
-const rows = 10;
-const columns = 10;
-const cellSize = 480 / Math.max(rows, columns);
+const rows = 20;
+const columns = 20;
+const cellSize = Math.ceil(480 / Math.max(rows, columns));
 
 export const GridConfig: AppConfig = {
   rows,

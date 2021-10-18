@@ -14,6 +14,7 @@ const StyledCell = styled.div<Partial<CellProps>>`
   height: ${GridConfig.cellSize}px;
   display: inline-block;
   border-radius: 10px;
+  vertical-align: top;
   margin: 0;
   background-color: ${({ alive }) => (alive ? "lightseagreen" : "transparent")};
 

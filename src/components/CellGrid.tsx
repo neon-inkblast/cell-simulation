@@ -21,7 +21,7 @@ const Grid: React.FC = () => {
       {grid.map((row, y) => (
         <CellGridRow key={y}>
           {row.map((cell, x) => (
-            <Cell key={`${x}|${y}`} x={x} y={y} alive={!!cell} />
+            <Cell key={`${x}|${y}`} x={x} y={y} alive={cell} />
           ))}
         </CellGridRow>
       ))}
