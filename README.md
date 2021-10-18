@@ -1,6 +1,4 @@
-# Belong - Tech Test - Cell Simulation
-
-# Table of Contents
+# Cell Simulation
 
 ![Screenshot of project](./docs/screenshot.png)
 
