@@ -15,6 +15,32 @@ const testPatterns = {
     [0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0],
   ],
+  hRectangle: {
+    setup: [
+      [0, 1, 1, 0, 0],
+      [0, 0, 1, 0, 0],
+    ],
+    expected: [
+      [0, 1, 1, 1, 0],
+      [0, 0, 0, 1, 0],
+    ],
+  },
+  vRectangle: {
+    setup: [
+      [0, 1],
+      [1, 0],
+      [1, 0],
+      [0, 1],
+      [1, 1],
+    ],
+    expected: [
+      [0, 0],
+      [1, 0],
+      [1, 0],
+      [0, 0],
+      [0, 0],
+    ],
+  },
   example: [
     [
       [0, 0, 0, 0, 0],
@@ -62,6 +88,34 @@ const convertPatternToState = (pattern, generation = 1) => {
 };
 
 describe("Cell simulation logic", () => {
+  describe("Test util - convertPatternToState()", () => {
+    it("converts a pattern using 0 and 1 to and array of bools with a default generation, matching the state type", () => {
+      const result = convertPatternToState(testPatterns.example[0]);
+      expect(result).toEqual({
+        generation: 1,
+        grid: [
+          [false, false, false, false, false],
+          [false, false, true, false, false],
+          [false, false, false, true, false],
+          [false, true, true, true, false],
+          [false, false, false, false, false],
+        ],
+      });
+    });
+    it("converts a pattern using 0 and 1 to and array of bools with a specified generation, matching the state type", () => {
+      const result = convertPatternToState(testPatterns.example[0], 47);
+      expect(result).toEqual({
+        generation: 47,
+        grid: [
+          [false, false, false, false, false],
+          [false, false, true, false, false],
+          [false, false, false, true, false],
+          [false, true, true, true, false],
+          [false, false, false, false, false],
+        ],
+      });
+    });
+  });
   describe("Toggle cell", () => {
     it("toggles a live cell to dead", () => {
       const start = convertPatternToState(testPatterns.filled);
@@ -108,6 +162,20 @@ describe("Cell simulation logic", () => {
     it("returns an empty grid when given an empty grid (underpopulation)", () => {
       const start = convertPatternToState(testPatterns.empty, 0);
       const expected = convertPatternToState(testPatterns.empty, 1);
+      const result = generateNext(start);
+      expect(result).toEqual(expected);
+    });
+
+    it("correctly calculates next generation when number of rows is more than number of columns", () => {
+      const start = convertPatternToState(testPatterns.vRectangle.setup);
+      const expected = convertPatternToState(testPatterns.vRectangle.expected, 2);
+      const result = generateNext(start);
+      expect(result).toEqual(expected);
+    });
+
+    it("correctly calculates next generation when number of columns is more than number of rows", () => {
+      const start = convertPatternToState(testPatterns.hRectangle.setup);
+      const expected = convertPatternToState(testPatterns.hRectangle.expected, 2);
       const result = generateNext(start);
       expect(result).toEqual(expected);
     });

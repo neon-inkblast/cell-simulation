@@ -1,6 +1,6 @@
 import { AppConfig } from "../@types/AppConfig";
 
-const rows = 20;
+const rows = 10;
 const columns = 20;
 const cellSize = Math.ceil(480 / Math.max(rows, columns));
 

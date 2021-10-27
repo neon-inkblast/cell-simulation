@@ -12,8 +12,8 @@ export const generateNext = (state: CellGridState): CellGridState => {
   function getNextCellState(x: number, y: number, cell: boolean): boolean {
     // calculate surrounding rows and columns, taking wrapping into account
     const prevRow = y === 0 ? lastRowIndex : y - 1;
-    const nextRow = y === lastColIndex ? 0 : y + 1;
-    const prevCol = x === 0 ? lastRowIndex : x - 1;
+    const nextRow = y === lastRowIndex ? 0 : y + 1;
+    const prevCol = x === 0 ? lastColIndex : x - 1;
     const nextCol = x === lastColIndex ? 0 : x + 1;
 
     // get an array of the neighbouring cells
