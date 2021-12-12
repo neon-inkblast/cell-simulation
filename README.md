@@ -1,7 +1,5 @@
 # Cell Simulation
 
-![Screenshot of project](./docs/screenshot.png)
-
 ## Test brief - Cell Simulator
 
 The aim is to demonstrate how you approach thinking about problems and translating them to code.
@@ -90,5 +88,3 @@ To run the test suites, use `npm test` or `yarn test`.
 
 This project was built in React using the Create React App to bootstrap.
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-I also utilised Styled Components lib as I noticed it listed in the Belong position description. :)
